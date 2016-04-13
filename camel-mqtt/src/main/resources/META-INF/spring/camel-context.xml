@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:camel="http://camel.apache.org/schema/spring" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+	<bean id="messageBean" class="org.pmacik.fuse.benchmark.MessageBean"/>
+	<camelContext xmlns="http://camel.apache.org/schema/spring" trace="false">
+		<route>
+			<from uri="mqtt://mqtt?subscribeTopicNames=fuse-benchmark-camel-mqtt-request&amp;userName=admin&amp;password=admin&amp;host=tcp://${server.host}:${server.port}/&amp;qualityOfService=ExactlyOnce"/>
+			<!--from uri="mqtt://mqtt?subscribeTopicNames=fuse-benchmark-camel-mqtt-request&amp;host=tcp://${server.host}:${server.port}/&amp;qualityOfService=ExactlyOnce"/-->
+			<to uri="bean:messageBean"/>
+			<to uri="mqtt://mqtt?publishTopicName=fuse-benchmark-camel-mqtt-response&amp;userName=admin&amp;password=admin&amp;host=tcp://${server.host}:${server.port}/&amp;qualityOfService=ExactlyOnce"/>
+			<!--to uri="mqtt://mqtt?publishTopicName=fuse-benchmark-camel-mqtt-response&amp;host=tcp://${server.host}:${server.port}/&amp;qualityOfService=ExactlyOnce"/-->
+		</route>
+	</camelContext>
+</beans>
