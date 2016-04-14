@@ -9,11 +9,11 @@
       <property name="responseTarget" value="fuse-benchmark-camel-mqtt-response"/>
    </sender>
    <reporting>
-      <reporter class="WarmUpReporter" enabled="false"/>
+      <reporter class="WarmUpReporter"/>
       <reporter class="IterationsPerSecondReporter">
          <destination class="CsvDestination">
             <period type="time" value="1000"/>
-            <property name="path" value="${perfcake.scenario}-throughput-stats-${perfcake.run.timestamp}.csv"/>
+            <property name="path" value="${perfcake.scenario}-throughput-${perfcake.run.timestamp}.csv"/>
          </destination>
          <destination class="ConsoleDestination">
             <period type="time" value="1000"/>
