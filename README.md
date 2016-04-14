@@ -66,7 +66,9 @@ To deploy the tested bundle simply place the bundle jar file built in the previo
 
 * Unpack the archive into a directory of your choice and let's call it `$PERFCAKE`.
 
-* Place PerfCake scenarios (all the files from `fuse-benchmark\perfcake\scenarios` directory) into `$PERFCAKE\resources\scenarios` directory.
+* Place PerfCake scenarios (all the files from `fuse-benchmark\perfcake\scenarios` directory) into `$PERFCAKE\resources\scenarios` directory
+
+* Place scenarios' messages (all the files from `fuse-benchmark\perfcake\messages` directory) into `$PERFCAKE\resources\messages` directory
 
 ## Run the benchmark scenario
 
@@ -79,11 +81,22 @@ The Fuse should be running with the particular bundle deployed and started
 $PERFCAKE\bin\perfcake.sh -s <scenario-name> -Dserver.host=<fuse-hostname>
 ```
 where: `<scenario-name>` is the name of the scenario file without the `.xml` extension and `<fuse-hostname>` is the network address (hostname or IP address) of the machine where Fuse is running.
-* Wait for PerfCake to to finish. The scenarios are configured to run with 100 concurrent threads for 5 minutes (plus a warm-up period). You'll see the progress and partial results in log output for the whole duration of scenario execution.
+* Wait for PerfCake to to finish. The scenarios are configured to run with 100 concurrent threads for 5 minutes (plus a warm-up period) using 1kB message. You'll see the progress and partial results in log output for the whole duration of scenario execution.
+
+>Note: The duration, number of threads or message size can be tweaked by the following Java system properties set during the PerfCake run:
+>* `perfcake.run.type` - the type of the duration, one of `time` or `iteration`
+>* `perfcake.run.duration` - amount of time (in milliseconds) in case of `time` run type, or the number of iterations in case of `iteration` run type
+>* `perfcake.thread.count` - the number of concurrent threads (number of clients)
+>* `perfcake.message.size` - the message size, one of `1B`, `16B`, `1kB` or `5kB`
+>
+>The previous (default) command is equivalent to:
+>```
+> $PERFCAKE\bin\perfcake.sh -s <scenario-name> -Dserver.host=<fuse-hostname> -Dperfcake.run.type=time -Dperfcake.run.duration=300000 -Dperfcake.thread.count=100 -Dperfcake.message.size=1kB
+>```
 
 ## Collect the results
 After a successful run of the PerfCake you will find the results in 2 forms:
-* A CSV file `$PERFCAKE\<scenario-name>-throughput-<timestamp>.csv` with the history of the benchmark run, where the last record is the final result.
+* CSV files `$PERFCAKE\<scenario-name>-<message-size>-throughput-stats-<timestamp>.csv` and `$PERFCAKE\<scenario-name>-<message-size>-response-time-stats-<timestamp>.csv` with the history of the benchmark run, where the last record is the final result.
 * A HTML report with nice charts found in `$PERFCAKE\<scenario-name>-charts\index.html` directory.
 
 Both reports show the same data.

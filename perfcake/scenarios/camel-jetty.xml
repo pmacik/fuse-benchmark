@@ -13,7 +13,7 @@
          <property name="maxiumumEnabled" value="false"/>
          <destination class="CsvDestination">
             <period type="time" value="1000"/>
-            <property name="path" value="${perfcake.scenario}-throughput-stats-${perfcake.run.timestamp}.csv"/>
+            <property name="path" value="${perfcake.scenario}-${perfcake.message.size:1kB}-throughput-stats-${perfcake.run.timestamp}.csv"/>
          </destination>
          <destination class="ConsoleDestination">
             <period type="time" value="1000"/>
@@ -23,7 +23,7 @@
             <property name="attributes" value="Result,Average"/>
             <property name="outputDir" value="${perfcake.scenario}-charts"/>
             <property name="yAxis" value="Iterations per second"/>
-            <property name="name" value="Throughput (${perfcake.scenario})"/>
+            <property name="name" value="Throughput ${perfcake.scenario} [${perfcake.message.size:1kB} message])"/>
          </destination>
       </reporter>
       <reporter class="ResponseTimeStatsReporter">
@@ -31,7 +31,7 @@
          <property name="maxiumumEnabled" value="false"/>
          <destination class="CsvDestination">
             <period type="time" value="1000"/>
-            <property name="path" value="${perfcake.scenario}-response-time-stats-${perfcake.run.timestamp}.csv"/>
+            <property name="path" value="${perfcake.scenario}-${perfcake.message.size:1kB}-response-time-stats-${perfcake.run.timestamp}.csv"/>
          </destination>
          <destination class="ConsoleDestination">
             <period type="time" value="1000"/>
@@ -40,8 +40,8 @@
             <period type="time" value="1000"/>
             <property name="attributes" value="Result,Average"/>
             <property name="outputDir" value="${perfcake.scenario}-charts"/>
-            <property name="yAxis" value="Iterations per second"/>
-            <property name="name" value="Throughput (${perfcake.scenario})"/>
+            <property name="yAxis" value="Response time [ms]"/>
+            <property name="name" value="Response time (${perfcake.scenario} [${perfcake.message.size:1kB} message])"/>
          </destination>
       </reporter>
       <!--reporter class="MemoryUsageReporter">
