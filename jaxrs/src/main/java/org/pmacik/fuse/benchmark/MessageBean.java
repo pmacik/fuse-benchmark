@@ -9,23 +9,24 @@ import javax.ws.rs.Produces;
 
 @Path("/")
 public class MessageBean {
-	
-	@GET
-	@Path("/sayHello/{name}")
-	@Consumes("text/plain")
-	@Produces("text/plain")
-	public String sayHelloGet(@PathParam("name") String name){
-		return sayHello(name);
-	}
-	@POST
-	@Path("/sayHello")
-	@Consumes("text/plain")
-	@Produces("text/plain")
-	public String sayHelloPost(String name){
-		return sayHello(name);
-	}
-	
-	private String sayHello(String name){
-		return "Hello " + name;
-	}
+
+   @GET
+   @Path("/sayHello/{name}")
+   @Consumes("text/plain")
+   @Produces("text/plain")
+   public String sayHelloGet(@PathParam("name") String name) {
+      return sayHello(name);
+   }
+
+   @POST
+   @Path("/sayHello")
+   @Consumes("text/plain")
+   @Produces("text/plain")
+   public String sayHelloPost(String name) {
+      return sayHello(name);
+   }
+
+   private String sayHello(String name) {
+      return "Hello " + name;
+   }
 }
