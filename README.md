@@ -1,7 +1,7 @@
 # JBoss Fuse Benchmark
 
 ## Prepare Fuse
-* Get and unzip Fuse archive (let's call the Fuse's directory `$FUSE`)
+* Get and unzip Fuse archive (let's call the Fuse's directory `$FUSE`). Out-of-the-box it is prepared for the Fuse version `6.2.1.redhat-084`.
 * Enable *admin* user (with password *admin*) by uncommenting following line in `$FUSE\etc\users.properties` file.
 ```
 admin=admin,...
@@ -43,6 +43,20 @@ All tested bundles are Maven projects that can be build by the following command
 mvn clean package
 ```
 After a successful build there is a jar file (the bundle) prepared in `target` directory.
+
+> Note: Currently and out-of-the-box the benchmark is set for the version `6.2.1.redhat-084` of Fuse. The version numbers can be overriden by setting the following Jave system properties for the maven build:
+>```
+> -Dfuse.major.version=6
+> -Dfuse.minor.version=2
+> -Dfuse.micro.version=1
+> -Dfuse.build.version=084
+>```
+> The bundles uses Apache ActiveMQ and CXF artifacts whose versions are set to the particular versions that are part of Fuse as well.
+> To override those versions, use the following Java system properties during the Maven build:
+>```
+>-Dversion.activemq=...
+>-Dversion.cxf=...
+>```
 
 #### Deploy tested bundle into Fuse
 To deploy the tested bundle simply place the bundle jar file built in the previous step into `$FUSE\deploy` directory.

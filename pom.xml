@@ -12,8 +12,7 @@
       <fuse.major.version>6</fuse.major.version>
       <fuse.minor.version>2</fuse.minor.version>
       <fuse.micro.version>1</fuse.micro.version>
-      <fuse.build.version.prefix>${fuse.major.version}${fuse.minor.version}${fuse.micro.version}
-      </fuse.build.version.prefix>
+      <fuse.build.version.prefix>${fuse.major.version}${fuse.minor.version}${fuse.micro.version}</fuse.build.version.prefix>
       <fuse.build.version>084</fuse.build.version>
 
       <version.fuse.bom>
