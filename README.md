@@ -62,7 +62,7 @@ After a successful build there is a jar file (the bundle) prepared in `target` d
 To deploy the tested bundle simply place the bundle jar file built in the previous step into `$FUSE\deploy` directory.
 
 ### Client side - Prepare PerfCake
-* [Get](http://www.perfcake.org/download) PerfCake
+* [Get](https://www.perfcake.org/docs/user-guide/ug.introduction.html#ug.introduction.getting-perfcake) PerfCake
 
 * Unpack the archive into a directory of your choice and let's call it `$PERFCAKE`.
 
