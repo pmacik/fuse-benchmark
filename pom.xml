@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.pmacik</groupId>
 	<artifactId>fuse-benchmark-parent</artifactId>
-	<version>6.2</version>
+	<version>1.0</version>
 	<packaging>pom</packaging>
 	<name>JBoss Fuse Performance Benchmark Parent</name>
 	<description>Performance benchmark repository for JBoss Fuse</description>
