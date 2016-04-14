@@ -21,7 +21,7 @@
          <destination class="ChartDestination">
             <period type="time" value="1000"/>
             <property name="attributes" value="Result,Average"/>
-            <property name="outputDir" value="${perfcake.scenario}-charts"/>
+            <property name="outputDir" value="${perfcake.scenario}-throughput-charts"/>
             <property name="yAxis" value="Iterations per second"/>
             <property name="name" value="Throughput ${perfcake.scenario} [${perfcake.message.size:1kB} message])"/>
          </destination>
@@ -39,7 +39,7 @@
          <destination class="ChartDestination">
             <period type="time" value="1000"/>
             <property name="attributes" value="Result,Average"/>
-            <property name="outputDir" value="${perfcake.scenario}-charts"/>
+            <property name="outputDir" value="${perfcake.scenario}-respons-time-charts"/>
             <property name="yAxis" value="Response time [ms]"/>
             <property name="name" value="Response time (${perfcake.scenario} [${perfcake.message.size:1kB} message])"/>
          </destination>
