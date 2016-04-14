@@ -69,7 +69,7 @@ where: `<scenario-name>` is the name of the scenario file without the `.xml` ext
 
 ## Collect the results
 After a successful run of the PerfCake you will find the results in 2 forms:
-1) A CSV file `$PERFCAKE\<scenario-name>-throughput-<timestamp>.csv` with the history of the benchmark run, where the last record is the final result.
-2) A HTML report with nice charts found in `$PERFCAKE\<scenario-name>-charts\index.html` directory.
+* A CSV file `$PERFCAKE\<scenario-name>-throughput-<timestamp>.csv` with the history of the benchmark run, where the last record is the final result.
+* A HTML report with nice charts found in `$PERFCAKE\<scenario-name>-charts\index.html` directory.
 
 Both reports show the same data.
