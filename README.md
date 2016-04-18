@@ -62,8 +62,8 @@ After a successful build there is a jar file (the bundle) prepared in `target` d
 To deploy the tested bundle simply place the bundle jar file built in the previous step into `$FUSE\deploy` directory.
 
 ### Client side - Prepare PerfCake
-* [Get](https://perfcake.ci.cloudbees.com/job/PerfCake-devel/lastBuild/artifact/perfcake/target/perfcake-7.0-SNAPSHOT-bin.zip)
-   > Note: PerfCake (Currently version 7.0-SNAPSHOT is necessary to run the benchmark)
+* Get PerfCake
+   > Note: PerfCake (Currently version [7.0-SNAPSHOT](https://perfcake.ci.cloudbees.com/job/PerfCake-devel/lastBuild/artifact/perfcake/target/perfcake-7.0-SNAPSHOT-bin.zip) is necessary to run the benchmark)
 
 * Unpack the archive into a directory of your choice and let's call it `$PERFCAKE`.
 
